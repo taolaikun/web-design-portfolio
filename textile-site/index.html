@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>锦源纺织 · 源头面料工厂 | FABRIC ATELIER</title>
+<meta name="description" content="锦源纺织——浙江柯桥源头面料工厂，专注棉麻针织研发生产二十余年，全产业链自有，支持来样定制与现货批发。">
+<style>
+:root{
+  --paper:#f4f1ea;
+  --paper-2:#eae5db;
+  --ink:#131110;
+  --ink-2:#3d3833;
+  --ink-3:#7a736a;
+  --line:rgba(19,17,16,.14);
+  --accent:#d8492b;      /* 前沿亮点：朱砂红 */
+  --clay:#a8764f;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+.wrap{max-width:1340px;margin:0 auto;padding:0 36px}
+
+/* 细体大标题的字距感 */
+.display{letter-spacing:-.035em;line-height:.98;font-weight:600}
+
+/* ===== 顶部 ===== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 0;
+  transition:all .5s cubic-bezier(.4,0,.2,1);
+}
+header.scrolled{
+  background:rgba(244,241,234,.86);
+  backdrop-filter:blur(20px) saturate(150%);
+  -webkit-backdrop-filter:blur(20px) saturate(150%);
+  border-bottom:1px solid var(--line);
+  padding:15px 0;
+}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:baseline;gap:12px;text-decoration:none;color:var(--ink)}
+.logo-text{font-size:19px;font-weight:700;letter-spacing:5px}
+.logo-en{font-size:9.5px;letter-spacing:2.6px;color:var(--ink-3);text-transform:uppercase}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{
+  text-decoration:none;color:var(--ink-2);font-size:14px;letter-spacing:.6px;
+  position:relative;padding-bottom:3px;transition:color .3s;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:0;height:1px;width:0;
+  background:var(--accent);transition:width .4s cubic-bezier(.4,0,.2,1);
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:13.5px;letter-spacing:.9px;color:var(--ink);text-decoration:none;
+  border:1px solid var(--ink);border-radius:999px;padding:11px 25px;
+  transition:all .35s cubic-bezier(.4,0,.2,1);
+}
+.nav-cta:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+
+/* 侧边竖排标记（编辑感） */
+.edge-mark{
+  position:fixed;left:16px;top:50%;transform:translateY(-50%) rotate(180deg);
+  writing-mode:vertical-rl;font-size:10.5px;letter-spacing:4.5px;
+  color:var(--ink-3);text-transform:uppercase;z-index:50;opacity:.75;
+}
+
+/* ===== 首屏 ===== */
+.hero{min-height:100vh;display:flex;align-items:center;padding:150px 0 90px;position:relative;overflow:hidden}
+.hero-noise{
+  position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(circle at 1px 1px, rgba(19,17,16,.09) 1px, transparent 0);
+  background-size:26px 26px;
+  mask-image:radial-gradient(ellipse 62% 62% at 76% 46%,#000,transparent 74%);
+  -webkit-mask-image:radial-gradient(ellipse 62% 62% at 76% 46%,#000,transparent 74%);
+}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:60px;align-items:center;position:relative;z-index:2}
+.eyebrow{
+  display:flex;align-items:center;gap:13px;margin-bottom:34px;
+  font-size:11.5px;letter-spacing:3.4px;color:var(--ink-3);text-transform:uppercase;
+}
+.eyebrow::before{content:'';width:46px;height:1px;background:var(--accent)}
+h1{font-size:clamp(44px,6.6vw,88px);margin-bottom:34px}
+h1 .out{
+  -webkit-text-stroke:1.6px var(--ink);
+  color:transparent;
+  font-style:italic;
+}
+h1 .red{color:var(--accent)}
+.hero-desc{
+  font-size:16.5px;color:var(--ink-2);max-width:500px;margin-bottom:44px;
+  padding-left:22px;border-left:1.5px solid var(--accent);
+}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{
+  padding:16px 34px;border-radius:999px;text-decoration:none;font-size:14.5px;
+  font-weight:500;letter-spacing:.7px;display:inline-flex;align-items:center;gap:10px;
+  border:none;cursor:pointer;font-family:inherit;
+  transition:all .35s cubic-bezier(.4,0,.2,1);
+}
+.btn-dark{background:var(--ink);color:var(--paper)}
+.btn-dark:hover{background:var(--accent);transform:translateY(-3px);box-shadow:0 14px 34px rgba(216,73,43,.34)}
+.btn-line{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper);transform:translateY(-3px)}
+.arw{transition:transform .3s}
+.btn:hover .arw{transform:translateX(4px)}
+
+/* 首屏右侧：杂志式图块 */
+.hero-mag{position:relative;height:600px}
+.mag-block{position:absolute;border-radius:4px;overflow:hidden;
+  box-shadow:0 30px 70px rgba(19,17,16,.19);transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.mag-block::before{
+  content:'';position:absolute;inset:0;opacity:.62;
+  background-image:
+    repeating-linear-gradient(0deg,rgba(255,255,255,.14) 0 1px,transparent 1px 6px),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.14) 0 1px,transparent 1px 6px);
+}
+.mag-1{width:66%;height:64%;top:0;right:0;background:linear-gradient(155deg,#c9a882,#a8764f 60%,#7d5738);z-index:3}
+.mag-2{width:52%;height:48%;bottom:0;left:0;background:linear-gradient(155deg,#e8ddcc,#d4c4ad 55%,#bda88c);z-index:4}
+.mag-3{width:40%;height:34%;bottom:112px;right:9%;background:linear-gradient(155deg,#d8492b,#a13320);z-index:2}
+.mag-block:hover{transform:translateY(-10px) scale(1.02)}
+.mag-cap{
+  position:absolute;left:18px;bottom:16px;z-index:5;
+  font-size:11px;letter-spacing:2.2px;color:#fff;text-transform:uppercase;
+  text-shadow:0 2px 10px rgba(0,0,0,.4);
+}
+.mag-note{
+  position:absolute;top:-18px;left:34%;z-index:6;
+  background:var(--ink);color:var(--paper);
+  padding:12px 20px;border-radius:3px;
+  font-size:12px;letter-spacing:1.5px;
+  transform:rotate(-3.5deg);
+  box-shadow:0 12px 30px rgba(19,17,16,.3);
+}
+
+/* 滚动提示 */
+.scroll-hint{
+  position:absolute;bottom:36px;left:36px;z-index:5;
+  display:flex;align-items:center;gap:11px;
+  font-size:10.5px;letter-spacing:3px;color:var(--ink-3);text-transform:uppercase;
+}
+.scroll-hint i{width:38px;height:1px;background:var(--ink-3);animation:slide 2.2s ease-in-out infinite}
+@keyframes slide{0%,100%{transform:scaleX(1);opacity:1}50%{transform:scaleX(.45);opacity:.4}}
+
+/* ===== 跑马灯 ===== */
+.marquee{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:26px 0;overflow:hidden;background:var(--paper-2);
+}
+.marq-track{display:flex;gap:58px;white-space:nowrap;animation:marq 34s linear infinite;width:max-content}
+.marq-track span{
+  font-size:clamp(19px,2.4vw,30px);font-weight:600;letter-spacing:-.5px;
+  color:var(--ink);display:flex;align-items:center;gap:58px;
+}
+.marq-track span::after{content:'◆';color:var(--accent);font-size:11px}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== 通用 ===== */
+section{padding:130px 0}
+.sec-label{
+  font-size:11px;letter-spacing:3.6px;color:var(--accent);
+  text-transform:uppercase;margin-bottom:20px;
+  display:flex;align-items:center;gap:13px;
+}
+.sec-label::before{content:'';width:30px;height:1px;background:var(--accent)}
+.sec-title{font-size:clamp(32px,4.4vw,58px);margin-bottom:22px}
+.sec-desc{font-size:16.5px;color:var(--ink-2);max-width:600px}
+
+/* ===== 关于：分栏编辑排版 ===== */
+.about{background:var(--paper)}
+.about-top{display:grid;grid-template-columns:1fr 1.25fr;gap:70px;margin-bottom:74px}
+.about-lead{font-size:22px;line-height:1.62;color:var(--ink);font-weight:400}
+.about-lead em{font-style:italic;color:var(--accent)}
+.about-body p{color:var(--ink-2);margin-bottom:19px;font-size:15.5px}
+.about-nums{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.anum{padding:38px 26px 38px 0;border-right:1px solid var(--line);position:relative}
+.anum:last-child{border-right:none}
+.anum-n{font-size:clamp(34px,4.6vw,58px);font-weight:600;letter-spacing:-.045em;line-height:1;margin-bottom:11px}
+.anum-n sup{font-size:.42em;color:var(--accent);margin-left:3px}
+.anum-l{font-size:13px;color:var(--ink-3);letter-spacing:1.1px}
+
+/* ===== 产品：编号列表式 ===== */
+.products{background:var(--paper-2)}
+.prod-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:66px;flex-wrap:wrap}
+.plist{border-top:1px solid var(--line)}
+.prow{
+  display:grid;grid-template-columns:70px 1.1fr 1.5fr auto;gap:30px;
+  align-items:center;padding:33px 0;border-bottom:1px solid var(--line);
+  text-decoration:none;color:inherit;transition:all .45s cubic-bezier(.4,0,.2,1);
+  position:relative;
+}
+.prow::before{
+  content:'';position:absolute;left:-36px;right:-36px;top:0;bottom:0;
+  background:var(--ink);opacity:0;transition:opacity .4s;z-index:-1;
+}
+.pnum{font-size:13px;color:var(--ink-3);letter-spacing:1.6px;font-family:"SF Mono",monospace}
+.pname{font-size:clamp(20px,2.4vw,29px);font-weight:600;letter-spacing:-.02em;transition:color .4s}
+.pdesc{font-size:14.5px;color:var(--ink-2);transition:color .4s}
+.parrow{font-size:22px;transition:all .4s;color:var(--ink-3)}
+.prow:hover{padding-left:36px}
+.prow:hover .pname{color:var(--accent)}
+.prow:hover .parrow{transform:translateX(8px);color:var(--accent)}
+
+/* ===== 优势：大数字块 ===== */
+.adv{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.adv::before{
+  content:'';position:absolute;inset:0;opacity:.06;
+  background-image:repeating-linear-gradient(45deg,var(--paper) 0 1px,transparent 1px 13px);
+}
+.adv .sec-label{color:#e8a68f}
+.adv .sec-label::before{background:#e8a68f}
+.adv .sec-title{color:var(--paper)}
+.adv .sec-desc{color:rgba(244,241,234,.6)}
+.adv-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  border-top:1px solid rgba(244,241,234,.15);position:relative;z-index:2;
+}
+.aitem{
+  padding:52px 46px 52px 0;border-bottom:1px solid rgba(244,241,234,.15);
+  border-right:1px solid rgba(244,241,234,.15);transition:all .45s;
+}
+.aitem:nth-child(odd){padding-right:46px}
+.aitem:nth-child(even){padding-left:46px;border-right:none}
+.aitem:hover{background:rgba(216,73,43,.09)}
+.aitem-n{font-size:13px;color:#e8a68f;letter-spacing:2.4px;margin-bottom:22px;font-family:"SF Mono",monospace}
+.aitem h3{font-size:clamp(22px,2.6vw,31px);font-weight:600;margin-bottom:15px;letter-spacing:-.02em}
+.aitem p{font-size:15px;color:rgba(244,241,234,.62);max-width:420px}
+
+/* ===== 联系 ===== */
+.contact{background:var(--paper)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.cinfo h3{font-size:clamp(28px,3.6vw,46px);margin-bottom:26px;letter-spacing:-.03em}
+.cinfo>p{color:var(--ink-2);margin-bottom:42px;font-size:16px;max-width:430px}
+.cline{display:flex;gap:0;border-top:1px solid var(--line);padding:24px 0;align-items:baseline}
+.cline-l{width:118px;font-size:11.5px;letter-spacing:2.2px;color:var(--ink-3);text-transform:uppercase;flex-shrink:0}
+.cline-v{font-size:17px;font-weight:500}
+.cform{background:#fff;border:1px solid var(--line);border-radius:6px;padding:44px 40px}
+.cform h4{font-size:23px;font-weight:600;margin-bottom:8px;letter-spacing:-.02em}
+.cform>p{font-size:14px;color:var(--ink-3);margin-bottom:30px}
+.field{margin-bottom:20px}
+.field label{display:block;font-size:11.5px;letter-spacing:2px;color:var(--ink-3);text-transform:uppercase;margin-bottom:9px}
+.field input,.field textarea{
+  width:100%;padding:14px 0;border:none;border-bottom:1px solid var(--line);
+  background:transparent;font-family:inherit;font-size:15.5px;color:var(--ink);
+  outline:none;transition:border-color .3s;
+}
+.field input:focus,.field textarea:focus{border-color:var(--accent)}
+.field textarea{resize:vertical;min-height:88px}
+.cform .btn{width:100%;justify-content:center;margin-top:14px}
+
+/* ===== 页脚 ===== */
+footer{background:var(--ink);color:rgba(244,241,234,.6);padding:70px 0 34px}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:50px;flex-wrap:wrap;
+  padding-bottom:52px;border-bottom:1px solid rgba(244,241,234,.15)}
+.foot-big{font-size:clamp(30px,4.4vw,62px);font-weight:600;color:var(--paper);letter-spacing:-.04em;line-height:1.06}
+.foot-big em{font-style:italic;color:#e8a68f}
+.foot-links{display:flex;gap:56px;flex-wrap:wrap}
+.fcol h5{color:var(--paper);font-size:13px;letter-spacing:1.8px;margin-bottom:20px;text-transform:uppercase}
+.fcol a{display:block;color:rgba(244,241,234,.56);text-decoration:none;font-size:14px;margin-bottom:12px;transition:color .3s}
+.fcol a:hover{color:var(--accent)}
+.foot-bottom{padding-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:12.5px;color:rgba(244,241,234,.42)}
+
+/* ===== 动效 ===== */
+.reveal{opacity:0;transform:translateY(44px);transition:opacity .95s cubic-bezier(.4,0,.2,1),transform .95s cubic-bezier(.4,0,.2,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.09s}.d2{transition-delay:.18s}.d3{transition-delay:.27s}.d4{transition-delay:.36s}
+
+/* ===== 响应式 ===== */
+@media(max-width:1100px){
+  .hero-grid{grid-template-columns:1fr;gap:64px}
+  .hero-mag{height:460px}
+  .about-top{grid-template-columns:1fr;gap:38px}
+  .adv-grid{grid-template-columns:1fr}
+  .aitem{padding:44px 0!important;border-right:none}
+  .contact-grid{grid-template-columns:1fr;gap:52px}
+  .edge-mark{display:none}
+}
+@media(max-width:768px){
+  .wrap{padding:0 22px}
+  .nav-links{display:none}
+  .nav-cta{padding:9px 18px;font-size:12.5px}
+  .logo-text{font-size:17px;letter-spacing:3.5px}
+  section{padding:84px 0}
+  .hero{padding:130px 0 70px}
+  .hero-mag{height:380px}
+  .scroll-hint{display:none}
+  .about-nums{grid-template-columns:repeat(2,1fr)}
+  .anum:nth-child(2){border-right:none}
+  .prow{grid-template-columns:auto 1fr;gap:16px;padding:26px 0}
+  .pdesc{grid-column:2}
+  .parrow{display:none}
+  .foot-links{gap:34px;width:100%}
+  .cform{padding:32px 24px}
+}
+</style>
+</head>
+<body>
+
+<div class="edge-mark">Zhejiang · Keqiao — Since 2003</div>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="logo">
+      <span class="logo-text">锦源纺织</span>
+      <span class="logo-en">Fabric Atelier</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">关于</a></li>
+      <li><a href="#products">面料</a></li>
+      <li><a href="#adv">优势</a></li>
+      <li><a href="#contact">联系</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">索取色卡 <span class="arw">→</span></a>
+  </div>
+</header>
+
+<!-- 首屏 -->
+<section class="hero">
+  <div class="hero-noise"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Zhejiang Keqiao · Source Factory</div>
+      <h1 class="display">
+        织里<span class="out">春秋</span><br>
+        <span class="red">二十</span>年<br>
+        只做一匹好布
+      </h1>
+      <p class="hero-desc">从一根纱线到一匹成品布，自有织造、染整、印花全产业链。现货批发不限量，来样定制起订灵活。</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn btn-dark">浏览面料系列 <span class="arw">→</span></a>
+        <a href="#contact" class="btn btn-line">免费领取色卡</a>
+      </div>
+    </div>
+    <div class="hero-mag">
+      <div class="mag-note">2003 → 2026</div>
+      <div class="mag-block mag-1"><span class="mag-cap">Cotton Knit</span></div>
+      <div class="mag-block mag-2"><span class="mag-cap">Linen Blend</span></div>
+      <div class="mag-block mag-3"><span class="mag-cap">Print</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><i></i>Scroll</div>
+</section>
+
+<!-- 跑马灯 -->
+<div class="marquee">
+  <div class="marq-track">
+    <span>纯棉针织 <span></span></span>
+    <span>亚麻混纺 <span></span></span>
+    <span>家纺面料 <span></span></span>
+    <span>功能性面料 <span></span></span>
+    <span>婴童专用 <span></span></span>
+    <span>数码印花 <span></span></span>
+    <span>纯棉针织 <span></span></span>
+    <span>亚麻混纺 <span></span></span>
+    <span>家纺面料 <span></span></span>
+    <span>功能性面料 <span></span></span>
+    <span>婴童专用 <span></span></span>
+    <span>数码印花 <span></span></span>
+  </div>
+</div>
+
+<!-- 关于 -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="sec-label reveal">About</div>
+    <div class="about-top">
+      <div class="reveal d1">
+        <p class="about-lead">我们相信，好面料是<em>织</em>出来的，不是讲出来的。</p>
+      </div>
+      <div class="about-body reveal d2">
+        <p>锦源纺织坐落于"国际纺织之都"浙江绍兴柯桥，是一家集研发、织造、染整、销售于一体的源头工厂。二十余年来只专注一件事——把每一匹布做好。</p>
+        <p>工厂现拥有现代化针织大圆机、全套染整设备与数码印花生产线，年产能超 8000 吨，产品远销欧美、日韩及东南亚市场。通过 OEKO-TEX Standard 100 环保认证，符合出口标准。</p>
+      </div>
+    </div>
+    <div class="about-nums">
+      <div class="anum reveal"><div class="anum-n">20<sup>+</sup></div><div class="anum-l">年织造经验</div></div>
+      <div class="anum reveal d1"><div class="anum-n">8000<sup>吨</sup></div><div class="anum-l">年产能规模</div></div>
+      <div class="anum reveal d2"><div class="anum-n">3000<sup>+</sup></div><div class="anum-l">常备现货花色</div></div>
+      <div class="anum reveal d3"><div class="anum-n">48<sup>h</sup></div><div class="anum-l">打样寄出时效</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 产品 -->
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="prod-head">
+      <div>
+        <div class="sec-label reveal">Fabrics</div>
+        <h2 class="sec-title display reveal d1">面料产品系列</h2>
+      </div>
+      <p class="sec-desc reveal d2" style="max-width:400px">覆盖服装、家纺、婴童、包装等多个场景，颜色、克重、门幅均可定制。</p>
+    </div>
+    <div class="plist">
+      <a href="#contact" class="prow reveal">
+        <span class="pnum">01</span>
+        <span class="pname">纯棉针织</span>
+        <span class="pdesc">精梳棉、新疆棉等多种原料，柔软亲肤透气，适用 T 恤、内衣、童装 · 克重 160–260g</span>
+        <span class="parrow">→</span>
+      </a>
+      <a href="#contact" class="prow reveal d1">
+        <span class="pnum">02</span>
+        <span class="pname">亚麻混纺</span>
+        <span class="pdesc">天然亚麻与棉、粘胶混纺，凉感挺括肌理感强，适合夏季衬衫与连衣裙</span>
+        <span class="parrow">→</span>
+      </a>
+      <a href="#contact" class="prow reveal d2">
+        <span class="pnum">03</span>
+        <span class="pname">家纺面料</span>
+        <span class="pdesc">高支高密床品布、磨毛布、法兰绒，手感细腻、色泽牢度高</span>
+        <span class="parrow">→</span>
+      </a>
+      <a href="#contact" class="prow reveal">
+        <span class="pnum">04</span>
+        <span class="pname">功能性面料</span>
+        <span class="pdesc">吸湿排汗、速干、抗菌防螨、抗紫外线，满足运动与户外服装需求</span>
+        <span class="parrow">→</span>
+      </a>
+      <a href="#contact" class="prow reveal d1">
+        <span class="pnum">05</span>
+        <span class="pname">婴童专用</span>
+        <span class="pdesc">A 类标准婴童布，无荧光剂、通过安全检测，柔软度与亲肤性兼顾</span>
+        <span class="parrow">→</span>
+      </a>
+      <a href="#contact" class="prow reveal d2">
+        <span class="pnum">06</span>
+        <span class="pname">数码印花</span>
+        <span class="pdesc">数码印花、活性印花、涂料印花，色彩鲜艳、环保色牢度高，支持来图打样</span>
+        <span class="parrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 优势 -->
+<section class="adv" id="adv">
+  <div class="wrap">
+    <div class="sec-label reveal">Why Us</div>
+    <h2 class="sec-title display reveal d1" style="margin-bottom:60px">为什么选择锦源</h2>
+    <div class="adv-grid">
+      <div class="aitem reveal">
+        <div class="aitem-n">/ 01</div>
+        <h3>源头工厂直供</h3>
+        <p>自有织造与染整车间，省去中间环节，同等品质下价格更有竞争力。</p>
+      </div>
+      <div class="aitem reveal d1">
+        <div class="aitem-n">/ 02</div>
+        <h3>品质稳定可控</h3>
+        <p>从原料进厂到成品出库，多道质检工序，一匹布对一份色卡。</p>
+      </div>
+      <div class="aitem reveal d2">
+        <div class="aitem-n">/ 03</div>
+        <h3>交期快而准</h3>
+        <p>现货 24 小时内发货，定制订单 48 小时打样、7–15 天交货。</p>
+      </div>
+      <div class="aitem reveal d3">
+        <div class="aitem-n">/ 04</div>
+        <h3>一对一跟单</h3>
+        <p>专属业务对接，从选样、打样到出货全程跟进，随时同步进度。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 联系 -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="cinfo">
+      <div class="sec-label reveal">Contact</div>
+      <h3 class="display reveal d1">聊聊你要做的布</h3>
+      <p class="reveal d2">无论是找现货还是定制开发，把需求告诉我们，48 小时内回复与报价。</p>
+      <div class="reveal d2">
+        <div class="cline"><span class="cline-l">Phone</span><span class="cline-v">138-0000-0000</span></div>
+        <div class="cline"><span class="cline-l">WeChat</span><span class="cline-v">jinyuan-tex</span></div>
+        <div class="cline"><span class="cline-l">Address</span><span class="cline-v">浙江省绍兴市柯桥区纺织工业区</span></div>
+        <div class="cline"><span class="cline-l">Email</span><span class="cline-v">sales@jinyuantex.com</span></div>
+      </div>
+    </div>
+    <div class="cform reveal d2">
+      <h4>在线留言</h4>
+      <p>填好需求，我们主动联系你</p>
+      <div class="field"><label>称呼</label><input type="text" placeholder="怎么称呼您"></div>
+      <div class="field"><label>手机号</label><input type="tel" placeholder="方便联系您的电话"></div>
+      <div class="field"><label>需求描述</label><textarea placeholder="例如：纯棉针织，200g，米白色，先要 500 米试试"></textarea></div>
+      <button class="btn btn-dark" onclick="submitForm(this)">提交需求 <span class="arw">→</span></button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-big display">一匹好布<br><em>从头做起</em></div>
+      <div class="foot-links">
+        <div class="fcol">
+          <h5>导航</h5>
+          <a href="#about">关于我们</a>
+          <a href="#products">面料产品</a>
+          <a href="#adv">工厂优势</a>
+          <a href="#contact">联系我们</a>
+        </div>
+        <div class="fcol">
+          <h5>联系</h5>
+          <a href="#">138-0000-0000</a>
+          <a href="#">sales@jinyuantex.com</a>
+          <a href="#">绍兴柯桥纺织工业区</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 锦源纺织 Jinyuan Textile. 保留所有权利。</div>
+      <div>本页面为设计演示模板，内容与联系方式仅作展示用途</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hdr = document.getElementById('hdr');
+window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 40));
+
+const io = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: .12, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+function submitForm(btn) {
+  const old = btn.innerHTML;
+  btn.innerHTML = '✓ 已提交，我们会尽快联系您';
+  btn.style.background = '#2f6b3f';
+  setTimeout(() => { btn.innerHTML = old; btn.style.background = ''; }, 2600);
+}
+</script>
+</body>
+</html>
